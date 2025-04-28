@@ -6,4 +6,5 @@
   "requirements": [],
   "dependencies": [],
   "codeowners": []
+  "integration_type": "config_flow"
 }
