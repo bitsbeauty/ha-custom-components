@@ -5,6 +5,6 @@
   "documentation": "https://github.com/bitsbeauty/ha-custom-components",
   "requirements": [],
   "dependencies": [],
-  "codeowners": []
+  "codeowners": [],
   "integration_type": "config_flow"
 }
