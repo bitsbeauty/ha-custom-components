@@ -1,7 +1,7 @@
 {
   "domain": "waldbrand_brandenburg",
   "name": "Waldbrandgefahrenstufe Brandenburg",
-  "version": "0.1",
+  "version": "0.1.0",
   "documentation": "https://github.com/bitsbeauty/ha-custom-components",
   "requirements": [],
   "dependencies": [],
