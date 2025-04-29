@@ -18,11 +18,11 @@ class WaldbrandSensor(CoordinatorEntity, SensorEntity):
 
     @property
     def native_value(self):
-        return self.coordinator.data
+        return self.coordinator.data.get("stufe") if self.coordinator.data else None
 
     @property
     def icon(self):
-        stufe = self.coordinator.data
+        stufe = self.coordinator.data.get("stufe") if self.coordinator.data else None
         if stufe == 5:
             return "mdi:fire-alert"
         elif stufe == 4:
@@ -38,14 +38,19 @@ class WaldbrandSensor(CoordinatorEntity, SensorEntity):
 
     @property
     def extra_state_attributes(self):
+        data = self.coordinator.data or {}
+        stufe = data.get("stufe")
+        datum = data.get("datum")
+
         beschreibung = {
             1: "sehr geringe Gefahr",
             2: "geringe Gefahr",
             3: "mittlere Gefahr",
             4: "hohe Gefahr",
             5: "sehr hohe Gefahr"
-        }.get(self.coordinator.data, "unbekannt")
-        
+        }.get(stufe, "unbekannt")
+
         return {
-            "beschreibung": beschreibung
+            "beschreibung": beschreibung,
+            "datum": datum
         }
