@@ -2,12 +2,9 @@
   "config": {
     "step": {
       "user": {
-        "title": "Waldbrandstufe konfigurieren",
-        "description": "Wähle deinen Landkreis",
-        "data": {
-          "county": "Landkreis"
-        }
+        "title": "Wähle deinen Landkreis"
       }
-    }
+    },
+    "error": {}
   }
 }
