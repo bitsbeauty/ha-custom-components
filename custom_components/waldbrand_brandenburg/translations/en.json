@@ -2,12 +2,9 @@
   "config": {
     "step": {
       "user": {
-        "title": "Configure wildfire risk level",
-        "description": "Choose your county",
-        "data": {
-          "county": "County"
-        }
+        "title": "Choose your county"
       }
-    }
+    },
+    "error": {}
   }
 }
