@@ -1,6 +1,6 @@
 import voluptuous as vol
 from homeassistant import config_entries
-from .const import DOMAIN, CONF_COUNTY, COUNTY_LIST
+from .const import DOMAIN, CONF_COUNTY, COUNTY_CHOICES
 
 class WaldbrandConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     VERSION = 1
@@ -10,12 +10,12 @@ class WaldbrandConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
 
         if user_input is not None:
             return self.async_create_entry(
-                title=f"Waldbrandgefahr {user_input[CONF_COUNTY].replace('_', ' ').title()}",
+                title=f"Waldbrandgefahr {COUNTY_CHOICES[user_input[CONF_COUNTY]]}",
                 data=user_input,
             )
 
         schema = vol.Schema({
-            vol.Required(CONF_COUNTY): vol.In(list(COUNTY_LIST.keys()))
+            vol.Required(CONF_COUNTY): vol.In(COUNTY_CHOICES)
         })
 
         return self.async_show_form(
