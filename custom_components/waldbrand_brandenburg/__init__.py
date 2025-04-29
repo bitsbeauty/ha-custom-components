@@ -6,6 +6,7 @@ from .const import DOMAIN, PLATFORM
 from .coordinator import WaldbrandDataUpdateCoordinator
 
 _LOGGER = logging.getLogger(__name__)
+_LOGGER.warning("🏗 Lokale DEV-Version der Integration wird geladen!")
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry):
     coordinator = WaldbrandDataUpdateCoordinator(hass, entry.data)
