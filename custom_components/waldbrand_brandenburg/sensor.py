@@ -14,7 +14,7 @@ class WaldbrandSensor(CoordinatorEntity, SensorEntity):
         self._attr_unique_id = f"waldbrand_{self._county}"
         self._attr_native_unit_of_measurement = None
         self._attr_device_class = None
-        self._attr_state_class = "measurement"
+        # Remove state_class for categorical data - fire danger levels are not measurements
 
     @property
     def native_value(self):
