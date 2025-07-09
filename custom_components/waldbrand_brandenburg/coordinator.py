@@ -51,9 +51,19 @@ class WaldbrandDataUpdateCoordinator(DataUpdateCoordinator):
                 raise UpdateFailed(f"Landkreis '{self.county}' nicht bekannt.")
 
             index = COUNTY_ORDER.index(self.county)
-            stufe = int(stufen[index])
+            
+            # Add bounds checking for the stufen array
+            if index >= len(stufen):
+                raise UpdateFailed(f"Nicht genug Daten für Landkreis '{self.county}' (Index {index}, verfügbare Daten: {len(stufen)}).")
+            
+            try:
+                stufe = int(stufen[index])
+            except (ValueError, IndexError) as e:
+                raise UpdateFailed(f"Fehler beim Verarbeiten der Waldbrandstufe für '{self.county}': {e}")
 
-            _LOGGER.debug(f"Waldbrandstufe {stufe} für Landkreis {self.county}, gültig ab {gueltig_ab}")
+            # Fix the debug logging to handle None values properly
+            datum_str = gueltig_ab.isoformat() if gueltig_ab else "unbekannt"
+            _LOGGER.debug(f"Waldbrandstufe {stufe} für Landkreis {self.county}, gültig ab {datum_str}")
 
             return {
                 "stufe": stufe,
