@@ -1,5 +1,5 @@
 import aiohttp
-import async_timeout
+import asyncio
 import logging
 import datetime
 from datetime import timedelta
@@ -22,7 +22,7 @@ class WaldbrandDataUpdateCoordinator(DataUpdateCoordinator):
     async def _async_update_data(self):
         try:
             async with aiohttp.ClientSession() as session:
-                async with async_timeout.timeout(10):
+                async with asyncio.timeout(10):
                     async with session.get(self.url) as response:
                         text = await response.text()
                         return self._parse_data(text)

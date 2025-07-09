@@ -3,7 +3,7 @@
   "name": "Waldbrandgefahrenstufe Brandenburg",
   "version": "0.1.5dev",
   "documentation": "https://github.com/bitsbeauty/ha-custom-components",
-  "requirements": [],
+  "requirements": ["aiohttp"],
   "dependencies": [],
   "codeowners": [],
   "config_flow": true
