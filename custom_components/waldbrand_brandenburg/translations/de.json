@@ -2,9 +2,15 @@
   "config": {
     "step": {
       "user": {
-        "title": "Wähle deinen Landkreis"
+        "title": "Wähle deinen Landkreis",
+        "description": "Bitte wähle den Landkreis aus, für den du die Waldbrandgefahrenstufe überwachen möchtest."
       }
     },
-    "error": {}
+    "error": {
+      "invalid_county": "Ungültiger Landkreis ausgewählt."
+    },
+    "abort": {
+      "already_configured": "Dieser Landkreis ist bereits konfiguriert."
+    }
   }
 }
