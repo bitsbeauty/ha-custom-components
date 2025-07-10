@@ -2,9 +2,15 @@
   "config": {
     "step": {
       "user": {
-        "title": "Choose your county"
+        "title": "Choose your county",
+        "description": "Please select the county for which you want to monitor the forest fire danger level."
       }
     },
-    "error": {}
+    "error": {
+      "invalid_county": "Invalid county selected."
+    },
+    "abort": {
+      "already_configured": "This county is already configured."
+    }
   }
 }
